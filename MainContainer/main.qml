@@ -5,5 +5,5 @@ Window {
     width: 640
     height: 480
     visible: true
-    title: qsTr("Sunck-Job-Beta")
+    title: qsTr("Sunck-Job(0.0.1) - Alpha")
 }
