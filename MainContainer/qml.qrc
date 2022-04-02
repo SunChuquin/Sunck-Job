@@ -1,5 +1,10 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>TopView.qml</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>iconfont.ttf</file>
+        <file>iconfont.js</file>
     </qresource>
 </RCC>

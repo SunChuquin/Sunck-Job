@@ -1,8 +1,13 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QFontDatabase>
+#include <QQmlContext>
+#include <QQmlComponent>
 
 #include <QLocale>
 #include <QTranslator>
+
+#include "SunckUtils.h"
 
 int main(int argc, char *argv[])
 {
@@ -21,8 +26,15 @@ int main(int argc, char *argv[])
         }
     }
 
+    QFontDatabase fontDatabase;
+    if (fontDatabase.addApplicationFont(":/fonts/iconfont.ttf") == -1) {
+        qWarning() << "Failed to load iconfont.ttf";
+    }
+
+    SunckUtils sunckUtils;
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
+    engine.rootContext()->setContextProperty("SunckUtils", &sunckUtils);
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
         if (!obj && url == objUrl)
