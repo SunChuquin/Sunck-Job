@@ -5,20 +5,22 @@ import QtQuick.Layouts 1.14
 Rectangle {
     color: "#FFFFFF"
 
-    anchors {top: parent.top; right: parent.right; left: parent.left}
-
     RowLayout {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.margins: 4
-        RoundButton {
+        Rectangle {
             id: appButton
-            text: "\ue63d"
-            font.family: "iconfont"
-            font.pointSize: 24
-            implicitHeight: font.pointSize
-            implicitWidth: font.pointSize
+            radius: 4
+            clip: true
+            BorderImage {
+                id: appIcon
+                source: "/sunck - 副本.png"
+                anchors.fill: parent
+            }
+            implicitHeight: 32
+            implicitWidth: 32
             Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
         }
         Text {
@@ -36,6 +38,7 @@ Rectangle {
             text: "\ue624"
             font.family: "iconfont"
             font.pointSize: 24
+
             implicitHeight: font.pointSize
             implicitWidth: font.pointSize
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
@@ -52,18 +55,25 @@ Rectangle {
             implicitWidth: font.pointSize
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
         }
-        ToolButton {
-            id: closeButton
-            text: "\ue62b"
-            font.family: "iconfont"
-            font.pointSize: 24
-            implicitHeight: font.pointSize
-            implicitWidth: font.pointSize
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+        Rectangle {
+            implicitHeight: closeButton.implicitHeight
+            implicitWidth: closeButton.implicitWidth
+//            color: "#FFFFFF"
+            color: "transparent"
+            Text {
+                id: closeButton
+                text: "\ue62b"
+                color: "green"
+                font.family: "iconfont"
+                font.pointSize: 24
+    //            implicitHeight: font.pointSize
+    //            implicitWidth: font.pointSize
+                Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: Qt.callLater(Qt.quit)
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: Qt.callLater(Qt.quit)
+                }
             }
         }
     }

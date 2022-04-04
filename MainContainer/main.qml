@@ -12,6 +12,7 @@ Window {
     TopView {
         id: topView
         height: 32
+        anchors {top: parent.top; right: parent.right; left: parent.left}
     }
 
     Rectangle {

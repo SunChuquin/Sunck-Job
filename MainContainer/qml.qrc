@@ -2,6 +2,9 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>TopView.qml</file>
+        <file>LeftView.qml</file>
+        <file>sunck.jpg</file>
+        <file>sunck - 副本.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file>iconfont.ttf</file>
